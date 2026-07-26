@@ -359,6 +359,113 @@
     pointer-events:none;
   }
 
+  /* ---------- CHART GALLERY ---------- */
+  .gallery-block{
+    margin-top:24px;
+    padding-top:20px;
+    border-top:1px dashed var(--line);
+  }
+  .gallery-label{
+    font-family:"IBM Plex Mono", monospace;
+    font-size:0.7rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--muted);
+    margin-bottom:14px;
+  }
+  .gallery-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(180px, 1fr));
+    gap:14px;
+  }
+  .chart-thumb{
+    background:var(--surface-2);
+    border:1px solid var(--line);
+    border-radius:10px;
+    overflow:hidden;
+    cursor:pointer;
+    padding:0;
+    text-align:left;
+    color:inherit;
+    font:inherit;
+    transition:border-color 0.15s ease, transform 0.15s ease;
+  }
+  .chart-thumb:hover{ border-color:var(--gold); transform:translateY(-2px); }
+  .chart-thumb img{
+    display:block;
+    width:100%;
+    height:120px;
+    object-fit:cover;
+    background:#fff;
+  }
+  .chart-thumb .cap{
+    padding:10px 12px;
+    font-family:"IBM Plex Mono", monospace;
+    font-size:0.7rem;
+    color:var(--muted);
+  }
+  .chart-thumb-empty{
+    border:1px dashed var(--line);
+    border-radius:10px;
+    padding:18px 14px;
+    color:var(--muted);
+    font-family:"IBM Plex Mono", monospace;
+    font-size:0.72rem;
+    line-height:1.5;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    min-height:120px;
+    text-align:center;
+  }
+
+  .lightbox{
+    position:fixed;
+    inset:0;
+    z-index:100;
+    background:rgba(6,12,17,0.92);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:40px 24px;
+  }
+  .lightbox.open{ display:flex; }
+  .lightbox-inner{
+    max-width:min(920px, 92vw);
+    max-height:88vh;
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+  }
+  .lightbox-inner img{
+    max-width:100%;
+    max-height:74vh;
+    border-radius:10px;
+    background:#fff;
+    display:block;
+    margin:0 auto;
+  }
+  .lightbox-cap{
+    text-align:center;
+    font-family:"IBM Plex Mono", monospace;
+    font-size:0.82rem;
+    color:var(--muted);
+  }
+  .lightbox-close{
+    position:absolute;
+    top:24px;
+    right:32px;
+    background:none;
+    border:1px solid var(--line);
+    color:var(--ivory);
+    font-family:"IBM Plex Mono", monospace;
+    font-size:0.78rem;
+    padding:8px 14px;
+    border-radius:8px;
+    cursor:pointer;
+  }
+  .lightbox-close:hover{ border-color:var(--gold); color:var(--gold); }
+
   /* ---------- FOOTER ---------- */
   footer{
     border-top:1px solid var(--line);
@@ -530,6 +637,23 @@
         <a class="btn btn-primary" href="https://github.com/jbx-p/drc-monetary-analytics" target="_blank" rel="noopener">Voir le code →</a>
         <a class="btn btn-ghost" href="#" data-demo-placeholder target="_blank" rel="noopener">Démo live ↗</a>
       </div>
+      <div class="gallery-block">
+        <p class="gallery-label">Graphiques du projet</p>
+        <div class="gallery-grid">
+          <button class="chart-thumb" data-src="assets/drc-monetary-analytics/correlation_heatmap.png" data-caption="Matrice de corrélation entre les 4 indicateurs macro-financiers">
+            <img src="assets/drc-monetary-analytics/correlation_heatmap.png" alt="Matrice de corrélation">
+            <span class="cap">Corrélation entre indicateurs</span>
+          </button>
+          <button class="chart-thumb" data-src="assets/drc-monetary-analytics/arima_forecast.png" data-caption="Prévision ARIMA(2,1,2) du taux de change CDF/USD, avec intervalle de confiance à 95%">
+            <img src="assets/drc-monetary-analytics/arima_forecast.png" alt="Prévision ARIMA">
+            <span class="cap">Prévision ARIMA</span>
+          </button>
+          <button class="chart-thumb" data-src="assets/drc-monetary-analytics/anomaly_scatter.png" data-caption="Détection d'anomalies transactionnelles par Isolation Forest">
+            <img src="assets/drc-monetary-analytics/anomaly_scatter.png" alt="Détection d'anomalies">
+            <span class="cap">Détection d'anomalies</span>
+          </button>
+        </div>
+      </div>
     </article>
 
     <!-- Project 2 -->
@@ -556,6 +680,13 @@
       <div class="cta-row">
         <a class="btn btn-primary" href="https://github.com/jbx-p/banking-database-analytics" target="_blank" rel="noopener">Voir le code →</a>
         <a class="btn btn-ghost" href="#" data-demo-placeholder target="_blank" rel="noopener">Schéma & requêtes ↗</a>
+      </div>
+      <div class="gallery-block">
+        <p class="gallery-label">Graphiques du projet</p>
+        <div class="gallery-grid">
+          <div class="chart-thumb-empty">Dépose ton diagramme ERD ici :<br><span class="mono">assets/banking-database-analytics/erd.png</span></div>
+          <div class="chart-thumb-empty">Capture EXPLAIN ANALYZE (avant/après index) :<br><span class="mono">assets/banking-database-analytics/query-perf.png</span></div>
+        </div>
       </div>
     </article>
 
@@ -584,6 +715,14 @@
         <a class="btn btn-primary" href="https://github.com/jbx-p/credit-risk-scoring" target="_blank" rel="noopener">Voir le code →</a>
         <a class="btn btn-ghost" href="#" data-demo-placeholder target="_blank" rel="noopener">Démo live ↗</a>
       </div>
+      <div class="gallery-block">
+        <p class="gallery-label">Graphiques du projet</p>
+        <div class="gallery-grid">
+          <div class="chart-thumb-empty">Dépose ta courbe ROC ici :<br><span class="mono">assets/credit-risk-scoring/roc_curve.png</span></div>
+          <div class="chart-thumb-empty">Matrice de confusion :<br><span class="mono">assets/credit-risk-scoring/confusion_matrix.png</span></div>
+          <div class="chart-thumb-empty">Importance des variables :<br><span class="mono">assets/credit-risk-scoring/feature_importance.png</span></div>
+        </div>
+      </div>
     </article>
 
     <!-- Project 4 -->
@@ -611,9 +750,24 @@
         <a class="btn btn-primary" href="https://github.com/jbx-p/segmentation-clientele" target="_blank" rel="noopener">Voir le code →</a>
         <a class="btn btn-ghost" href="#" data-demo-placeholder target="_blank" rel="noopener">Démo live ↗</a>
       </div>
+      <div class="gallery-block">
+        <p class="gallery-label">Graphiques du projet</p>
+        <div class="gallery-grid">
+          <div class="chart-thumb-empty">Dépose ton graphique du coude ici :<br><span class="mono">assets/segmentation-clientele/elbow_method.png</span></div>
+          <div class="chart-thumb-empty">Visualisation des clusters (2D/PCA) :<br><span class="mono">assets/segmentation-clientele/clusters_scatter.png</span></div>
+        </div>
+      </div>
     </article>
   </div>
 </section>
+
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose">Fermer ✕</button>
+  <div class="lightbox-inner">
+    <img id="lightboxImg" src="" alt="">
+    <p class="lightbox-cap" id="lightboxCap"></p>
+  </div>
+</div>
 
 <footer id="contact">
   <div class="wrap">
@@ -652,6 +806,37 @@
     track.innerHTML = html + html; // dupliqué pour la boucle infinie
   }
   renderTicker();
+
+  // Lightbox pour la galerie de graphiques
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightboxImg");
+  const lightboxCap = document.getElementById("lightboxCap");
+  const lightboxClose = document.getElementById("lightboxClose");
+
+  function openLightbox(src, caption){
+    lightboxImg.src = src;
+    lightboxImg.alt = caption || "";
+    lightboxCap.textContent = caption || "";
+    lightbox.classList.add("open");
+    lightboxClose.focus();
+  }
+  function closeLightbox(){
+    lightbox.classList.remove("open");
+    lightboxImg.src = "";
+  }
+
+  document.querySelectorAll(".chart-thumb").forEach(btn => {
+    btn.addEventListener("click", () => {
+      openLightbox(btn.dataset.src, btn.dataset.caption);
+    });
+  });
+  lightboxClose.addEventListener("click", closeLightbox);
+  lightbox.addEventListener("click", (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && lightbox.classList.contains("open")) closeLightbox();
+  });
 </script>
 
 </body>
