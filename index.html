@@ -407,16 +407,46 @@
   .chart-thumb-empty{
     border:1px dashed var(--line);
     border-radius:10px;
-    padding:18px 14px;
+    padding:18px 16px;
     color:var(--muted);
-    font-family:"IBM Plex Mono", monospace;
-    font-size:0.72rem;
-    line-height:1.5;
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    justify-content:center;
+    gap:10px;
+    min-height:120px;
+    overflow:hidden;
+  }
+  .chart-thumb-empty .ph-icon{
+    width:26px;
+    height:26px;
+    border:1px solid var(--line);
+    border-radius:6px;
     display:flex;
     align-items:center;
     justify-content:center;
-    min-height:120px;
-    text-align:center;
+    color:var(--gold);
+    font-size:0.9rem;
+    flex-shrink:0;
+  }
+  .chart-thumb-empty .ph-title{
+    font-family:"IBM Plex Sans", sans-serif;
+    font-size:0.8rem;
+    color:var(--ivory);
+  }
+  .chart-thumb-empty .ph-path{
+    font-family:"IBM Plex Mono", monospace;
+    font-size:0.66rem;
+    color:var(--muted);
+    background:var(--ink);
+    border:1px solid var(--line);
+    padding:5px 8px;
+    border-radius:6px;
+    width:100%;
+    box-sizing:border-box;
+    overflow-wrap:anywhere;
+    word-break:break-all;
+    line-height:1.5;
   }
 
   .lightbox{
@@ -684,8 +714,16 @@
       <div class="gallery-block">
         <p class="gallery-label">Graphiques du projet</p>
         <div class="gallery-grid">
-          <div class="chart-thumb-empty">Dépose ton diagramme ERD ici :<br><span class="mono">assets/banking-database-analytics/erd.png</span></div>
-          <div class="chart-thumb-empty">Capture EXPLAIN ANALYZE (avant/après index) :<br><span class="mono">assets/banking-database-analytics/query-perf.png</span></div>
+          <div class="chart-thumb-empty">
+            <span class="ph-icon">+</span>
+            <span class="ph-title">Diagramme ERD</span>
+            <span class="ph-path">assets/banking-database-analytics/erd.png</span>
+          </div>
+          <div class="chart-thumb-empty">
+            <span class="ph-icon">+</span>
+            <span class="ph-title">Gain de performance (EXPLAIN ANALYZE)</span>
+            <span class="ph-path">assets/banking-database-analytics/query-perf.png</span>
+          </div>
         </div>
       </div>
     </article>
@@ -718,9 +756,21 @@
       <div class="gallery-block">
         <p class="gallery-label">Graphiques du projet</p>
         <div class="gallery-grid">
-          <div class="chart-thumb-empty">Dépose ta courbe ROC ici :<br><span class="mono">assets/credit-risk-scoring/roc_curve.png</span></div>
-          <div class="chart-thumb-empty">Matrice de confusion :<br><span class="mono">assets/credit-risk-scoring/confusion_matrix.png</span></div>
-          <div class="chart-thumb-empty">Importance des variables :<br><span class="mono">assets/credit-risk-scoring/feature_importance.png</span></div>
+          <div class="chart-thumb-empty">
+            <span class="ph-icon">+</span>
+            <span class="ph-title">Courbe ROC</span>
+            <span class="ph-path">assets/credit-risk-scoring/roc_curve.png</span>
+          </div>
+          <div class="chart-thumb-empty">
+            <span class="ph-icon">+</span>
+            <span class="ph-title">Matrice de confusion</span>
+            <span class="ph-path">assets/credit-risk-scoring/confusion_matrix.png</span>
+          </div>
+          <div class="chart-thumb-empty">
+            <span class="ph-icon">+</span>
+            <span class="ph-title">Importance des variables</span>
+            <span class="ph-path">assets/credit-risk-scoring/feature_importance.png</span>
+          </div>
         </div>
       </div>
     </article>
@@ -753,8 +803,16 @@
       <div class="gallery-block">
         <p class="gallery-label">Graphiques du projet</p>
         <div class="gallery-grid">
-          <div class="chart-thumb-empty">Dépose ton graphique du coude ici :<br><span class="mono">assets/segmentation-clientele/elbow_method.png</span></div>
-          <div class="chart-thumb-empty">Visualisation des clusters (2D/PCA) :<br><span class="mono">assets/segmentation-clientele/clusters_scatter.png</span></div>
+          <div class="chart-thumb-empty">
+            <span class="ph-icon">+</span>
+            <span class="ph-title">Méthode du coude</span>
+            <span class="ph-path">assets/segmentation-clientele/elbow_method.png</span>
+          </div>
+          <div class="chart-thumb-empty">
+            <span class="ph-icon">+</span>
+            <span class="ph-title">Visualisation des clusters (PCA)</span>
+            <span class="ph-path">assets/segmentation-clientele/clusters_scatter.png</span>
+          </div>
         </div>
       </div>
     </article>
